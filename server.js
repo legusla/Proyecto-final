@@ -1,8 +1,10 @@
 const express = require('express');
 const Contenedor = require('./Contenedor');
 const productosRouter = require('./routers/productos');
+const carritoRouter = require('./routers/carrito');
 
 const productosContenedor = new Contenedor('./productos.json');
+const carritoContenedor = new Contenedor('./carrito.json');
 
 const app = express();
 
@@ -25,6 +27,7 @@ app.post('/productos', function (req,res){
 });
 
 app.use('/api/productos', productosRouter);
+app.use('/api/carrito', carritoRouter);
 
 app.use(function (err, req, res, next) {
     console.error(err.stack);
