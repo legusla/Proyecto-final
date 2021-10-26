@@ -1,5 +1,6 @@
 const express = require('express');
 const Contenedor = require('./Contenedor');
+
 const productosRouter = require('./routers/productos');
 const carritoRouter = require('./routers/carrito');
 
@@ -13,24 +14,23 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/static', express.static('public'));
 
-//app.get('/', function(req, res) {
-  //  res.render('/index')
-//});
+app.get('/', function(req, res) {
+   res.send({ message: 'algo'});
+});
 
-//app.get('/form', function(req, res) {
-//    res.render('/form');
-//});
+app.get('/carrito', async function(req, res) {
+    const carrito = await carritoContenedor.getAll();
+    res.render('/carrito', {
+        carrito
+    });
+});
 
-//app.get('/productos',  async function (req,res){
-  //  productos = await productosContenedor.getAll();
-    //res.render('pages/list-productos', {
-      // productos
-    //})
-//});
-
-//app.post('/productos', function (req,res){
-  //  res.render('pages/list-productos')
-//});
+app.get('/productos',  async function (req,res){
+  const productos = await productosContenedor.getAll();
+    res.render('/producto', {
+       productos
+    })
+});
 
 app.use('/api/productos', productosRouter);
 app.use('/api/carrito', carritoRouter);
