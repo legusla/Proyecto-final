@@ -14,8 +14,13 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/static', express.static('public'));
 
+app.use(function (req, res, next) {
+    console.log('Hora:', Date.now());
+    next();
+});
+
 app.get('/', function(req, res) {
-   res.send({ message: 'algo'});
+    res.render('./router/productos')
 });
 
 app.get('/carrito', async function(req, res) {
