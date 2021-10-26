@@ -12,15 +12,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/static', express.static('public'));
-
-app.use(function (req, res, next) {
-    console.log('Hora:', Date.now());
-    next();
-});
+app.use(express.static('public'));
 
 app.get('/', function(req, res) {
-    res.render('./router/productos')
+    res.render();
 });
 
 app.get('/carrito', async function(req, res) {
