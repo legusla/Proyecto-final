@@ -8,23 +8,29 @@ const carritoContenedor = new Contenedor('./carrito.json');
 
 const app = express();
 
-const PORT = 8080;
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/static', express.static('public'));
 
-app.get('/productos',  async function (req,res){
-    productos = await productosContenedor.getAll();
-    res.render('pages/list-productos', {
-       productos
-    })
-});
+//app.get('/', function(req, res) {
+  //  res.render('/index')
+//});
 
-app.post('/productos', function (req,res){
-    res.render('pages/list-productos')
-});
+//app.get('/form', function(req, res) {
+//    res.render('/form');
+//});
+
+//app.get('/productos',  async function (req,res){
+  //  productos = await productosContenedor.getAll();
+    //res.render('pages/list-productos', {
+      // productos
+    //})
+//});
+
+//app.post('/productos', function (req,res){
+  //  res.render('pages/list-productos')
+//});
 
 app.use('/api/productos', productosRouter);
 app.use('/api/carrito', carritoRouter);
@@ -34,8 +40,7 @@ app.use(function (err, req, res, next) {
     res.status(500).send('Algo salio mal!');
 });
 
-app.listen(PORT, () => console.log(`Servidor corriendo en : ${PORT}`));
-
-app.on('error', (error) => console.log('Error: ', error));
-
-console.log(__dirname);
+const PORT = 8080;
+app.listen(8080);
+app.on('error', (error) => console.log('Error', error));
+console.log(`El puerto ${PORT} se esta ejecutando`);
