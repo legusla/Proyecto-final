@@ -22,7 +22,7 @@ app.get('/carrito', async function(req, res) {
     const carrito = await carritoContenedor.getAll();
     res.render('pages/carrito', {
         carrito
-    });
+    })
 });
 
 app.get('/productos',  async function (req,res){
