@@ -15,19 +15,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
-    res.render();
+    res.render('index');
 });
 
 app.get('/carrito', async function(req, res) {
     const carrito = await carritoContenedor.getAll();
-    res.render('/carrito', {
+    res.render('pages/carrito', {
         carrito
     });
 });
 
 app.get('/productos',  async function (req,res){
   const productos = await productosContenedor.getAll();
-    res.render('/producto', {
+    res.render('pages/lista-productos', {
        productos
     })
 });
