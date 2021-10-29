@@ -1,88 +1,23 @@
 const express = require('express');
+const isAdmin = require('../middlewares/isAdmin');
+const { getAllProducts, createProduct } = require('../models/products');
 
-const Contenedor = require('../../Contenedor');
+const productsRouter = express.Router();
 
-const productosContenedor = new Contenedor('./data/productos.json');
+productsRouter.get('/', async (req, res) => {
+    const data = await getAllProducts();
 
-const productosRouter = express.Router();
-
-productosRouter.get('/', async (req, res) => {
-    const lista = await productosContenedor.getAll();
-    res.send({
-        message: 'Operación exitosa',
-        data: lista
-    });
-})
-
-productosRouter.get('/:id', async (req, res) => {
-    const productoId = req.params.id;
-    const producto = req.body;
-    const idProducto = await productosContenedor.getById(productoId, producto);
-
-    if (!idProducto) {
-        res.send({
-            message: 'producto no encontrado',
-            data: idProducto
-        });
-    } else {
-        res.send({
-            message: 'operación exitosa',
-            data: idProducto
-        });
-    }
+    res.send({ data });
 });
 
-productosRouter.post('/', async (req, res) => {
-    const nuevoProducto = req.body;
+//isAdmin
+productsRouter.post('/', isAdmin, async (req, res) => {
+    const newProduct = req.body;
+    const idProductSaved = await createProduct(newProduct);
 
-    const idProductoGuardado = await productosContenedor.save(nuevoProducto);
-
-    res.send({
-        message: 'Operación exitosa',
-        data: {
-            ...nuevoProducto,
-            id: idProductoGuardado
-        }
-    });
-})
-
-productosRouter.put('/:id', async (req, res) => {
-    const productoId = req.params.id;
-    const producto = req.body;
-    const productoActualizado = await productosContenedor.update(productoId, producto);
-
-    if (!productoActualizado) {
-        res.send({
-            message: 'operación incorrecta',
-            data: productoActualizado
-        });
-    } else {
-        res.send({
-            message: 'operación exitosa',
-            data: productoActualizado
-        });
-    }
+    res.send({ data: idProductSaved });
 });
 
-productosRouter.delete('/:id', async (req, res) => {
-    const id = req.params.id;
-    const productos = req.body;
-    const deleteID = await productosContenedor.deleteById(id, productos);
 
-    if (!deleteID) {
-        res.send({
-        message: 'No se pudo borrar',
-        data: deleteID  
-    });
-    } else {
-        res.send({
-            message: 'Se borro exitosamente',
-            data: deleteID      
-        });  
-    }
-    console.log(deleteID);
-})
+module.exports = productsRouter;
 
-module.exports = productosRouter;
-
-console.log(__dirname);
