@@ -1,7 +1,13 @@
 const express = require('express');
-const { createCart, deleteCart , addProductsToCart, getProductsByIdCart, deleteProductToCart } = require('../models/cart')
+const { getAllCart, createCart, deleteCart , addProductsToCart, getProductsByIdCart, deleteProductToCart } = require('../models/cart')
 
 const cartRouter = express.Router();
+
+cartRouter.get('/', async (req, res) => {
+    const data = await getAllCart();
+
+    res.send({ data });
+});
 
 //Crea un carrito y devuelve si id.
 cartRouter.post('/', async (req, res) => {

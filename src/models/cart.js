@@ -2,6 +2,12 @@ const Contenedor = require('../../Contenedor');
 
 const cartContenedor = new Contenedor('./data/carrito.json');
 
+const getAllCart = async (products) => {
+    const cart = await cartContenedor.getAll(products);
+
+    return cart;
+};
+
 //crea un carrito y te da su id
 const createCart = async (cart) => {
     const idCartSaved = await cartContenedor.save(cart);
@@ -48,6 +54,7 @@ const deleteProductToCart = async (id, idProduct) => {
 };
 
 module.exports = {
+    getAllCart,
     createCart,
     deleteCart,
     getProductsByIdCart,
