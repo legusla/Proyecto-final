@@ -1,6 +1,6 @@
 const express = require('express');
 
-const Contenedor = require('../Contenedor');
+const Contenedor = require('../../Contenedor');
 
 const productosContenedor = new Contenedor('./data/productos.json');
 

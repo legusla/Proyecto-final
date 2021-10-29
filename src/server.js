@@ -1,5 +1,5 @@
 const express = require('express');
-const Contenedor = require('./Contenedor');
+const Contenedor = require('../Contenedor');
 
 const productosRouter = require('./routers/productos');
 const carritoRouter = require('./routers/carrito');
