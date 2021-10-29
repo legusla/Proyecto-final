@@ -18,6 +18,7 @@ class Contenedor {
             const listaDeProducto = JSON.parse(contenido);
 
             producto.id = listaDeProducto[listaDeProducto.length - 1].id + 1;
+            producto.timestamp = Date.now();
             listaDeProducto.push(producto);
             productos = listaDeProducto;
         }

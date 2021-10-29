@@ -3,11 +3,12 @@ const { getAllCart, createCart, deleteCart , addProductsToCart, getProductsByIdC
 
 const cartRouter = express.Router();
 
-cartRouter.get('/', async (req, res) => {
-    const data = await getAllCart();
+//Muetra todos los productos dentro de un carrito
+//cartRouter.get('/', async (req, res) => {
+//    const data = await getAllCart();
 
-    res.send({ data });
-});
+//    res.send({ data });
+//});
 
 //Crea un carrito y devuelve si id.
 cartRouter.post('/', async (req, res) => {

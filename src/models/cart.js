@@ -25,7 +25,7 @@ const deleteCart = async (idCart) => {
 //te muestra un producto dentro de un carrito por id
 const getProductsByIdCart = async (id) => {
     const cart = await cartContenedor.getById(id);
-    const { products } = cart;
+    const  products  = cart;
 
     return products;
 };
@@ -40,7 +40,7 @@ const addProductsToCart = async (id, update) => {
 //borra un producto de un carrito por id
 const deleteProductToCart = async (id, idProduct) => {
     const cart = await cartContenedor.getById(id);
-    const { products } = cart;
+    const  { products }  = cart;
 
     products.splice(idProduct, 1);
 
