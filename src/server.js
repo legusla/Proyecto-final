@@ -14,9 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 
-app.get('/', function(req, res) {
-    res.render('index');
-});
+app.get('/', (req, res) => 
+    res.send({ data: Date.now() }))
+    
 
 app.get('/carrito', async function(req, res) {
     const cart = await cartContenedor.getAll();
