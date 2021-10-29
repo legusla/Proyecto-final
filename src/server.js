@@ -1,11 +1,11 @@
 const express = require('express');
 const Contenedor = require('../Contenedor');
 
-const productosRouter = require('./routers/productos');
-const carritoRouter = require('./routers/carrito');
+const productsRouter = require('./routers/products');
+const cartRouter = require('./routers/cart');
 
-const productosContenedor = new Contenedor('./productos.json');
-const carritoContenedor = new Contenedor('./carrito.json');
+const productsContenedor = new Contenedor('./products.json');
+const cartContenedor = new Contenedor('./cart.json');
 
 const app = express();
 
@@ -19,21 +19,21 @@ app.get('/', function(req, res) {
 });
 
 app.get('/carrito', async function(req, res) {
-    const carrito = await carritoContenedor.getAll();
+    const cart = await cartContenedor.getAll();
     res.render('pages/carrito', {
-        carrito
+        cart
     })
 });
 
 app.get('/productos',  async function (req,res){
-  const productos = await productosContenedor.getAll();
+  const products = await productsContenedor.getAll();
     res.render('pages/lista-productos', {
-       productos
+       products
     })
 });
 
-app.use('/api/productos', productosRouter);
-app.use('/api/carrito', carritoRouter);
+app.use('/api/productos', productsRouter);
+app.use('/api/carrito', cartRouter);
 
 app.use(function (err, req, res, next) {
     console.error(err.stack);
