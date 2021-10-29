@@ -12,25 +12,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static('public'));
+//app.use(express.static('public'));
 
 app.get('/', (req, res) => 
     res.send({ data: Date.now() }))
-    
-
-app.get('/carrito', async function(req, res) {
-    const cart = await cartContenedor.getAll();
-    res.render('pages/carrito', {
-        cart
-    })
-});
-
-app.get('/productos',  async function (req,res){
-  const products = await productsContenedor.getAll();
-    res.render('pages/lista-productos', {
-       products
-    })
-});
 
 app.use('/api/productos', productsRouter);
 app.use('/api/carrito', cartRouter);
