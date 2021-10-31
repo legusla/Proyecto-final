@@ -5,16 +5,6 @@
     "codigo": 100,
     "foto": "asdasd",
     "precio": "100",
-    "stock": 21,
-    "id": 2,
-    "timestamp": 1635701657731
-  },
-  {
-    "nombre": "test",
-    "descripcion": "test asd",
-    "codigo": 100,
-    "foto": "asdasd",
-    "precio": "100",
     "stock": 22,
     "id": 3,
     "timestamp": 1635701658572
