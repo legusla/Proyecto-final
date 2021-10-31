@@ -21,8 +21,7 @@ cartRouter.post('/', async (req, res) => {
 //Vacia un carrito y lo elimina.
 cartRouter.delete('/:id', async (req, res) => {
     const idCart = req.params.id;
-    const idProduct = req.body;
-    const idCartDeleted = await deleteCart(idCart, idProduct);
+    const idCartDeleted = await deleteCart(idCart);
 
     res.send({ data: idCartDeleted });
 });
