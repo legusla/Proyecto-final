@@ -4,11 +4,11 @@ const { getAllProducts, createProduct, getIdProduct, updateProduct, deleteProduc
 
 const productsRouter = express.Router();
 
-productsRouter.get('/', async (req, res) => {
-    const data = await getAllProducts();
+//productsRouter.get('/', async (req, res) => {
+//    const data = await getAllProducts();
 
-    res.send({ data });
-});
+//    res.send({ data });
+//});
 
 productsRouter.get('/:id?', async (req, res) => {
     const productId = req.params.id;
