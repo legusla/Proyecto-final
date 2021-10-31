@@ -20,7 +20,7 @@ cartRouter.post('/', async (req, res) => {
 
 //Vacia un carrito y lo elimina.
 cartRouter.delete('/:id', async (req, res) => {
-    const cart = req.body;
+    const cart = req.params.id;
     const idCartDeleted = await deleteCart(cart);
 
     res.send({ data: idCartDeleted });
@@ -29,9 +29,7 @@ cartRouter.delete('/:id', async (req, res) => {
 //Permite ver un prodcuto por su id dentro del carrito.
 cartRouter.get('/:id/productos', async (req, res) => {
     const cartId = req.params.id;
-    console.log({cartId})
     const list = await getProductsByIdCart(cartId);
-    console.log({list})
 
     res.send({ data: list });
 });

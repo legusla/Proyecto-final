@@ -3,22 +3,45 @@
     "products": [
       {
         "nombre": "test",
-        "descrpcion": "sjldfhjskjlsdf",
-        "codigo": 123,
-        "foto": "url",
-        "precio": "1000",
-        "stock": 2,
+        "descripcion": "test asd",
+        "codigo": 100,
+        "foto": "asdasd",
+        "precio": "100",
+        "stock": 20,
         "id": 1
       }
     ],
-    "id": 1
+    "id": 1,
+    "timestamp": 1635707488915
   },
   {
+    "products": [
+      {
+        "nombre": "test",
+        "descripcion": "test asd",
+        "codigo": 100,
+        "foto": "asdasd",
+        "precio": "100",
+        "stock": 20,
+        "id": 2
+      }
+    ],
     "id": 2,
-    "timestamp": 1635699834573
+    "timestamp": 1635707491870
   },
   {
+    "products": [
+      {
+        "nombre": "test",
+        "descripcion": "test asd",
+        "codigo": 100,
+        "foto": "asdasd",
+        "precio": "100",
+        "stock": 20,
+        "id": 3
+      }
+    ],
     "id": 3,
-    "timestamp": 1635699841340
+    "timestamp": 1635707492600
   }
 ]
