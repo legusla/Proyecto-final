@@ -18,9 +18,9 @@ const createCart = async (cart) => {
 
 //borra un carrito por id
 const deleteCart = async (idCart) => {
-    await cartContenedor.deleteById(idCart);
+  const deleteCarrito =  await cartContenedor.deleteById(idCart);
 
-    return idCart;
+    return deleteCarrito;
 };
 
 //te muestra un producto dentro de un carrito por id
