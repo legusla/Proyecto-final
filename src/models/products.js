@@ -32,9 +32,9 @@ const updateProduct = async (id, prodcut) => {
 
 //borra un producto por su id
 const deleteProduct = async (id) => {
-    const prodcut = await productsContenedor.deleteById(id);
+    const product = await productsContenedor.deleteById(id);
 
-    return prodcut;
+    return product;
 }
 
 

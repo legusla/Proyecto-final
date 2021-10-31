@@ -37,11 +37,11 @@ productsRouter.put('/:id', isAdmin, async (req, res) => {
 });
 
 //Borra un producto por su id
-productsRouter.delete('/id', isAdmin, async (req, res) => {
-    const idDelete = req.body;
-    const deleteProduct = await deleteProduct(idDelete);
+productsRouter.delete('/:id', isAdmin, async (req, res) => {
+    const idDelete = req.params.id;
+    const idDeleteProduct = await deleteProduct(idDelete);
 
-    res.send({ data: deleteProduct});
+    res.send({ data: idDeleteProduct});
 });
 
 
