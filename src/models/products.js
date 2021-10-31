@@ -23,8 +23,25 @@ const createProduct = async (product) => {
     return idProductSaved;
 };
 
+//actualiza un producto por su id
+const updateProduct = async (id, prodcut) => {
+    const productUpdated = await productsContenedor.update(id, prodcut);
+
+    return productUpdated;
+};
+
+//borra un producto por su id
+const deleteProduct = async (id) => {
+    const prodcut = await productsContenedor.deleteById(id);
+
+    return prodcut;
+}
+
+
 module.exports = {
     getAllProducts,
     getIdProduct,
-    createProduct
+    updateProduct,
+    createProduct,
+    deleteProduct
 };
