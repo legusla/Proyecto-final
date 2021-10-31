@@ -9,6 +9,13 @@ const getAllProducts = async () => {
     return list;
 };
 
+//muestra un producto por su id
+const getIdProduct = async (id) => {
+    const productId = await productsContenedor.getById(id);
+
+    return productId;
+};
+
 //crea un produto y te da su id
 const createProduct = async (product) => {
     const idProductSaved = await productsContenedor.save(product);
@@ -18,5 +25,6 @@ const createProduct = async (product) => {
 
 module.exports = {
     getAllProducts,
+    getIdProduct,
     createProduct
 };
