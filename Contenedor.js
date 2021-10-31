@@ -13,10 +13,10 @@ class Contenedor {
 
         if (contenido === '') {
             producto.id = 1;
+            producto.timestamp = Date.now();
             productos.push(producto);
         } else {
             const listaDeProducto = JSON.parse(contenido);
-
             producto.id = listaDeProducto[listaDeProducto.length - 1].id + 1;
             producto.timestamp = Date.now();
             listaDeProducto.push(producto);
@@ -66,11 +66,11 @@ class Contenedor {
         try {
             const contenido = await fs.promises.readFile(`./${this.file}`);
             const listaDeProducto = JSON.parse(contenido);
-            const nuevaLista = listaDeProducto.filter(producto => producto.id !== parseInt(id));
-            const lista = JSON.stringify(nuevaLista);
+            const nuevaLista = listaDeProducto.filter(producto => producto.id !== parseInt (id));
+            const lista = JSON.stringify(nuevaLista, null, 2);
             const listaP = await fs.promises.writeFile(`./${this.file}`, lista);
             
-            return nuevaLista;
+            return listaP;
         }   catch (error) {
             console.log('Error', error);
         };

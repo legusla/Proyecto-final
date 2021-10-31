@@ -1,7 +1,8 @@
 const Contenedor = require('../../Contenedor');
 
-const cartContenedor = new Contenedor('./data/carrito.json');
+const cartContenedor = new Contenedor('./data/cart.json');
 
+//muestra todos los productos dentro del carrito
 const getAllCart = async (products) => {
     const cart = await cartContenedor.getAll(products);
 
@@ -25,7 +26,7 @@ const deleteCart = async (idCart) => {
 //te muestra un producto dentro de un carrito por id
 const getProductsByIdCart = async (id) => {
     const cart = await cartContenedor.getById(id);
-    const  products  = cart;
+    const  { products }  = cart;
 
     return products;
 };

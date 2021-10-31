@@ -1,0 +1,24 @@
+[
+  {
+    "products": [
+      {
+        "nombre": "test",
+        "descrpcion": "sjldfhjskjlsdf",
+        "codigo": 123,
+        "foto": "url",
+        "precio": "1000",
+        "stock": 2,
+        "id": 1
+      }
+    ],
+    "id": 1
+  },
+  {
+    "id": 2,
+    "timestamp": 1635699834573
+  },
+  {
+    "id": 3,
+    "timestamp": 1635699841340
+  }
+]

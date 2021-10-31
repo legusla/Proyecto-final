@@ -3,12 +3,12 @@ const { getAllCart, createCart, deleteCart , addProductsToCart, getProductsByIdC
 
 const cartRouter = express.Router();
 
-//Muetra todos los productos dentro de un carrito
-//cartRouter.get('/', async (req, res) => {
-//    const data = await getAllCart();
+//Muetra todos los productos dentro de un carrito.
+cartRouter.get('/', async (req, res) => {
+   const data = await getAllCart();
 
-//    res.send({ data });
-//});
+    res.send({ data });
+});
 
 //Crea un carrito y devuelve si id.
 cartRouter.post('/', async (req, res) => {
@@ -26,7 +26,7 @@ cartRouter.delete('/:id', async (req, res) => {
     res.send({ data: idCartDeleted });
 });
 
-//Me permite listar todos los productos guardados en el carrito.
+//Permite ver un prodcuto por su id dentro del carrito.
 cartRouter.get('/:id/productos', async (req, res) => {
     const cartId = req.params.id;
     console.log({cartId})
@@ -36,12 +36,12 @@ cartRouter.get('/:id/productos', async (req, res) => {
     res.send({ data: list });
 });
 
-//Para incorporar productos al carrito por su id de producto
+//Para incorporar productos al carrito por su id de producto.
 cartRouter.post('/:id/productos', async (req, res) => {
     const cartId = req.params.id;
     const cartUpdate = req.body;
 
-    const cart = await addProductsToCart.apply(cartId, cartUpdate);
+    const cart = await addProductsToCart(cartId, cartUpdate);
 
     res.send({ data: cart });
 });
