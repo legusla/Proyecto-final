@@ -33,7 +33,7 @@ const getProductsByIdCart = async (id) => {
 };
 
 //agrega un producto a un carrito por id
-const addProductsToCart = async (id, product ) => {
+const addProductsToCart = async (id, product) => {
     try{
         const idProducts = products.map( product =>
              product.id);
@@ -73,10 +73,9 @@ const addProductsToCart = async (id, product ) => {
 const deleteProductToCart = async (id, idProduct) => {
     const cart = await cartContenedor.getById(id);
 
-    cart.products = cart.products.filter(product => product.id !== idProduct);
-    console.log(cart)
-    const cartUpdated = await cartContenedor.update(id, deleteProduct);
-    
+    cart.products = cart.products.filter(product => product.id != idProduct);
+    const cartUpdated = await cartContenedor.update(id, idProduct);
+    console.log(cartUpdated)
     //return cartUpdated;
 };
 
