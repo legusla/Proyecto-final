@@ -4,11 +4,11 @@ const { getAllCart, createCart, deleteCart , addProductsToCart, getProductsByIdC
 const cartRouter = express.Router();
 
 //Muetra todos los productos dentro de un carrito.
-cartRouter.get('/', async (req, res) => {
+/*cartRouter.get('/', async (req, res) => {
    const data = await getAllCart();
 
     res.send({ data });
-});
+});*/
 
 //Crea un carrito y devuelve si id.
 cartRouter.post('/', async (req, res) => {
@@ -29,6 +29,7 @@ cartRouter.delete('/:id', async (req, res) => {
 //Permite ver un prodcuto por su id dentro del carrito.
 cartRouter.get('/:id/productos', async (req, res) => {
     const cartId = req.params.id;
+    
     const list = await getProductsByIdCart(cartId);
 
     res.send({ data: list });

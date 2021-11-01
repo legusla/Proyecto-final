@@ -3,11 +3,11 @@ const Contenedor = require('../../Contenedor');
 const cartContenedor = new Contenedor('./data/cart.json');
 
 //muestra todos los productos dentro del carrito
-const getAllCart = async (products) => {
+/*const getAllCart = async (products) => {
     const cart = await cartContenedor.getAll(products);
 
     return cart;
-};
+};*/
 
 //crea un carrito y te da su id
 const createCart = async (cart) => {
@@ -33,42 +33,54 @@ const getProductsByIdCart = async (id) => {
 };
 
 //agrega un producto a un carrito por id
-const addProductsToCart = async (id, idProduct) => {
-    const cart = await cartContenedor.getById(id);
-    const { products } = cart;
+const addProductsToCart = async (id, product ) => {
+    try{
+        const idProducts = products.map( product =>
+             product.id);
 
-    products.splice(idProduct, 1);
+             const productsFound = [];
+            
+             for(const idProduct of idProducts) {
 
+                if( !idProduct) return {
+                    status: 400,
+                    error: 'no se recibio un id de un producto'
+                }
+                const product = await 
+                    cartContenedor.getById(idProduct);
 
-    const cartUpdated = await cartContenedor.update(id, products);
+                    if( producto.error) return {
+                        status: 404,
+                        error: `el producto con el id ${
+                            idProduct} no existe`
+                    }
 
-    return cartUpdated;
+                    productsFound.push(product);
+             }
+             if(!productsFound.length) return {
+                 status: 404,
+                 error: 'no se encontraron productos'
+             };
+             console.log(productsFound)
+             return productsFound;
+             
+    }   catch(error) {
+        //throw new Error('ocurrio un error al obtener los productos:', error)
+    }
 };
 
 //borra un producto de un carrito por id
 const deleteProductToCart = async (id, idProduct) => {
     const cart = await cartContenedor.getById(id);
-    const  { products }  = cart;
 
-    products.splice(idProduct, 1);
-
-    const newCart = {
-        ...cart,
-        products
-    }
-    console.log(newCart);
-    console.log(cart);
-    console.log(products);
-
-    const deleteProduct = await cartContenedor.deleteById(id.products);
-
+    cart.products = cart.products.filter(product => product.id !== idProduct);
+    console.log(cart)
     const cartUpdated = await cartContenedor.update(id, deleteProduct);
     
-    return cartUpdated;
+    //return cartUpdated;
 };
 
 module.exports = {
-    getAllCart,
     createCart,
     deleteCart,
     getProductsByIdCart,

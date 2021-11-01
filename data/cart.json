@@ -30,6 +30,15 @@
     "timestamp": 1635707491870
   },
   {
+    "0": {
+      "nombre": "test",
+      "descripcion": "test asd",
+      "codigo": 100,
+      "foto": "asdasd",
+      "precio": "100",
+      "stock": 20,
+      "id": 3
+    },
     "products": [
       {
         "nombre": "test",
@@ -45,15 +54,6 @@
     "timestamp": 1635707492600
   },
   {
-    "0": {
-      "nombre": "test",
-      "descripcion": "test asd",
-      "codigo": 100,
-      "foto": "asdasd",
-      "precio": "120",
-      "stock": 20,
-      "id": 3
-    },
     "products": [
       {
         "nombre": "test",

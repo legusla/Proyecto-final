@@ -9,11 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencie": {
-    "express": "^4.17.1"
-  },
   "dependencies": {
-    "nodemon": "^2.0.14"
+    "nodemon": "^2.0.14",
+    "express": "^4.17.1"
   },
   "repository": {
     "type": "git",

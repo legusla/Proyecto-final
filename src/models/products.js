@@ -24,8 +24,8 @@ const createProduct = async (product) => {
 };
 
 //actualiza un producto por su id
-const updateProduct = async (id, prodcut) => {
-    const productUpdated = await productsContenedor.update(id, prodcut);
+const updateProduct = async (id, product) => {
+    const productUpdated = await productsContenedor.update(id, product);
 
     return productUpdated;
 };
