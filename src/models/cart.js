@@ -2,13 +2,6 @@ const Contenedor = require('../../Contenedor');
 
 const cartContenedor = new Contenedor('./data/cart.json');
 
-//muestra todos los productos dentro del carrito
-/*const getAllCart = async (products) => {
-    const cart = await cartContenedor.getAll(products);
-
-    return cart;
-};*/
-
 //crea un carrito y te da su id
 const createCart = async (cart) => {
     const idCartSaved = await cartContenedor.save(cart);
@@ -33,14 +26,14 @@ const getProductsByIdCart = async (id) => {
 };
 
 //agrega un producto a un carrito por id
-const addProductsToCart = async (id, product) => {
+const addProductsToCart = async (id, products) => {
     try{
-        const idProducts = products.map( product =>
-             product.id);
+        const idProducts = products.map( products =>
+             products.id);
 
-             const productsFound = [];
+            const productsFound = [];
             
-             for(const idProduct of idProducts) {
+            for(const idProduct of idProducts) {
 
                 if( !idProduct) return {
                     status: 400,
@@ -49,20 +42,20 @@ const addProductsToCart = async (id, product) => {
                 const product = await 
                     cartContenedor.getById(idProduct);
 
-                    if( producto.error) return {
+                    if( product.error) return {
                         status: 404,
                         error: `el producto con el id ${
                             idProduct} no existe`
                     }
 
                     productsFound.push(product);
-             }
-             if(!productsFound.length) return {
+            }
+            if(!productsFound.length) return {
                  status: 404,
                  error: 'no se encontraron productos'
-             };
-             console.log(productsFound)
-             return productsFound;
+            };
+            console.log(productsFound)
+            return productsFound;
              
     }   catch(error) {
         //throw new Error('ocurrio un error al obtener los productos:', error)
@@ -73,7 +66,7 @@ const addProductsToCart = async (id, product) => {
 const deleteProductToCart = async (id, idProduct) => {
     const cart = await cartContenedor.getById(id);
 
-    cart.products = cart.products.filter(product => product.id != idProduct);
+    cart.products = cart.products.filter(products => products.id != idProduct);
     const cartUpdated = await cartContenedor.update(id, idProduct);
     console.log(cartUpdated)
     //return cartUpdated;
