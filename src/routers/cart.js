@@ -1,14 +1,7 @@
 const express = require('express');
-const { getAllCart, createCart, deleteCart , addProductsToCart, getProductsByIdCart, deleteProductToCart } = require('../models/cart')
+const { createCart, deleteCart , addProductsToCart, getProductsByIdCart, deleteProductToCart } = require('../models/cart')
 
 const cartRouter = express.Router();
-
-//Muetra todos los productos dentro de un carrito.
-/*cartRouter.get('/', async (req, res) => {
-   const data = await getAllCart();
-
-    res.send({ data });
-});*/
 
 //Crea un carrito y devuelve si id.
 cartRouter.post('/', async (req, res) => {
@@ -20,7 +13,7 @@ cartRouter.post('/', async (req, res) => {
 
 //Vacia un carrito y lo elimina.
 cartRouter.delete('/:id', async (req, res) => {
-    const idCart = req.params.id;
+    const idCart = req.body;
     const idCartDeleted = await deleteCart(idCart);
 
     res.send({ data: idCartDeleted });

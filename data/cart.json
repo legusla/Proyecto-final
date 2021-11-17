@@ -11,8 +11,8 @@
         "id": 1
       }
     ],
-    "id": 1,
-    "timestamp": 1635707488915
+    "id": 8,
+    "timestamp": 1637169282748
   },
   {
     "products": [
@@ -23,22 +23,13 @@
         "foto": "asdasd",
         "precio": "100",
         "stock": 20,
-        "id": 2
+        "id": 1
       }
     ],
-    "id": 2,
-    "timestamp": 1635707491870
+    "id": 9,
+    "timestamp": 1637169283252
   },
   {
-    "0": {
-      "nombre": "test",
-      "descripcion": "test asd",
-      "codigo": 100,
-      "foto": "asdasd",
-      "precio": "100",
-      "stock": 20,
-      "id": 3
-    },
     "products": [
       {
         "nombre": "test",
@@ -47,11 +38,11 @@
         "foto": "asdasd",
         "precio": "100",
         "stock": 20,
-        "id": 3
+        "id": 1
       }
     ],
-    "id": 3,
-    "timestamp": 1635707492600
+    "id": 10,
+    "timestamp": 1637169283713
   },
   {
     "products": [
@@ -60,13 +51,28 @@
         "descripcion": "test asd",
         "codigo": 100,
         "foto": "asdasd",
-        "precio": "120",
+        "precio": "100",
         "stock": 20,
-        "id": 3
+        "id": 1
       }
     ],
-    "id": 4,
-    "timestamp": 1635710021096
+    "id": 11,
+    "timestamp": 1637170297738
+  },
+  {
+    "products": [
+      {
+        "nombre": "test",
+        "descripcion": "test asd",
+        "codigo": 1000,
+        "foto": "asdasd",
+        "precio": "100",
+        "stock": 20,
+        "id": 1
+      }
+    ],
+    "id": 12,
+    "timestamp": 1637170298658
   },
   {
     "products": [
@@ -75,43 +81,42 @@
         "descripcion": "test asd",
         "codigo": 100,
         "foto": "asdasd",
-        "precio": "120",
+        "precio": "100",
         "stock": 20,
-        "id": 3
+        "id": 1
       }
     ],
-    "id": 5,
-    "timestamp": 1635806367945
-  },
-  {
-    "0": "2",
-    "products": [
-      {
-        "nombre": "test1",
-        "descripcion": "test asd2",
-        "codigo": 100,
-        "foto": "asdasd",
-        "precio": "120",
-        "stock": 20,
-        "id": 3
-      }
-    ],
-    "id": 6,
-    "timestamp": 1635806384788
+    "id": 13,
+    "timestamp": 1637170299346
   },
   {
     "products": [
       {
-        "nombre": "test1",
-        "descripcion": "test asd2",
+        "nombre": "test",
+        "descripcion": "test asd",
         "codigo": 100,
         "foto": "asdasd",
-        "precio": "120",
+        "precio": "100",
         "stock": 20,
-        "id": 3
+        "id": 1
       }
     ],
-    "id": 7,
-    "timestamp": 1635806412808
+    "id": 14,
+    "timestamp": 1637170299928
+  },
+  {
+    "products": [
+      {
+        "nombre": "test",
+        "descripcion": "test asd",
+        "codigo": 100,
+        "foto": "asdasd",
+        "precio": "100",
+        "stock": 20,
+        "id": 1
+      }
+    ],
+    "id": 15,
+    "timestamp": 1637170300491
   }
 ]

@@ -5,61 +5,26 @@ const cartContenedor = new Contenedor('./data/cart.json');
 //crea un carrito y te da su id
 const createCart = async (cart) => {
     const idCartSaved = await cartContenedor.save(cart);
-
     return idCartSaved;
 };
 
 //borra un carrito por id
 const deleteCart = async (id) => {
-    const deleteProduct = await cartContenedor.deleteById(id);
-    const cartUpdated = await cartContenedor.update(id, deleteProduct);
-    
-    return cartUpdated;
+    const deleteCart = await cartContenedor.deleteById(id);
+    return deleteCart;
 };
 
 //te muestra un producto dentro de un carrito por id
 const getProductsByIdCart = async (id) => {
     const cart = await cartContenedor.getById(id);
     const  { products }  = cart;
-
     return products;
 };
 
 //agrega un producto a un carrito por id
-const addProductsToCart = async (id, products) => {
-    try{
-        const idProducts = products.map( products =>
-             products.id);
-
-            const productsFound = [];
-            
-            for(const idProduct of idProducts) {
-
-                if( !idProduct) return {
-                    status: 400,
-                    error: 'no se recibio un id de un producto'
-                }
-                const product = await 
-                    cartContenedor.getById(idProduct);
-
-                    if( product.error) return {
-                        status: 404,
-                        error: `el producto con el id ${
-                            idProduct} no existe`
-                    }
-
-                    productsFound.push(product);
-            }
-            if(!productsFound.length) return {
-                 status: 404,
-                 error: 'no se encontraron productos'
-            };
-            console.log(productsFound)
-            return productsFound;
-             
-    }   catch(error) {
-        //throw new Error('ocurrio un error al obtener los productos:', error)
-    }
+const addProductsToCart = async (id, update) => {
+    const cartUpdated = await cartContenedor.update(id , update)
+    return cartUpdated;
 };
 
 //borra un producto de un carrito por id
