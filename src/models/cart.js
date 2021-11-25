@@ -23,6 +23,7 @@ const getProductsByIdCart = async (id) => {
 
 //agrega un producto a un carrito por id
 const addProductsToCart = async (id, update) => {
+    
     const cartUpdated = await cartContenedor.update(id , update)
     return cartUpdated;
 };
