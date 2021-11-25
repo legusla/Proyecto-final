@@ -22,20 +22,26 @@ const getProductsByIdCart = async (id) => {
 };
 
 //agrega un producto a un carrito por id
-const addProductsToCart = async (id, update) => {
-    
-    const cartUpdated = await cartContenedor.update(id , update)
+const addProductsToCart = async (id, update) => { 
+    const cart = await cartContenedor.getById(id); 
+    const { products } = cart;
+
+    products.filter(products => products.id != update);
+    const cartUpdated = await cartContenedor.update(update)
+    console.log(update)
+
     return cartUpdated;
 };
 
 //borra un producto de un carrito por id
 const deleteProductToCart = async (id, idProduct) => {
     const cart = await cartContenedor.getById(id);
+    const { products } = cart;
 
-    cart.products = cart.products.filter(products => products.id != idProduct);
-    const cartUpdated = await cartContenedor.update(id, idProduct);
-    console.log(cartUpdated)
-    //return cartUpdated;
+    products.filter(products => products.id != idProduct);
+    const cartUpdated = await cartContenedor.update(idProduct);
+    console.log(products)
+    return cartUpdated;
 };
 
 module.exports = {

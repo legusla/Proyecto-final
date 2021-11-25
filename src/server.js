@@ -4,9 +4,6 @@ const Contenedor = require('../Contenedor');
 const productsRouter = require('./routers/products');
 const cartRouter = require('./routers/cart');
 
-const productsContenedor = new Contenedor('./products.json');
-const cartContenedor = new Contenedor('./cart.json');
-
 const app = express();
 
 app.use(express.json());
