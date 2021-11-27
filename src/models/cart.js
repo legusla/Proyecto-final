@@ -26,7 +26,7 @@ const addProductsToCart = async (id, idProduct) =>  {
     const cart = await cartContenedor.getById(id);
     const { products } = cart;
   
-    products.splice(idProduct, 1);
+    products.splice(0, 0, idProduct);
   
     const newCart = {
       ...cart,
@@ -37,15 +37,19 @@ const addProductsToCart = async (id, idProduct) =>  {
   };
 
 //borra un producto de un carrito por id
-const deleteProductToCart = async (id, idProduct) => {
+const deleteProductToCart = async (id, idProduct) =>  {
     const cart = await cartContenedor.getById(id);
     const { products } = cart;
-
-    products.filter(products => products.id != idProduct);
-    const cartUpdated = await cartContenedor.update(idProduct);
-    console.log(products)
+  
+    products.splice(idProduct, 1);
+  
+    const newCart = {
+      ...cart,
+      products
+    }
+    const cartUpdated = await cartContenedor.update(id, newCart);
     return cartUpdated;
-};
+  };
 
 module.exports = {
     createCart,
