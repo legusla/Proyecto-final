@@ -1,15 +1,10 @@
 const express = require('express');
-const Contenedor = require('../Contenedor');
-
 const productsRouter = require('./routers/products');
 const cartRouter = require('./routers/cart');
-
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-//app.use(express.static('public'));
 
 app.get('/', (req, res) => 
     res.send({ data: Date.now() }))
