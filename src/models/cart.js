@@ -26,7 +26,7 @@ const addProductsToCart = async (id, idProduct) =>  {
     const cart = await cartContenedor.getById(id);
     const { products } = cart;
   
-    products.splice(0, 0, idProduct);
+    products.push(idProduct);
   
     const newCart = {
       ...cart,
