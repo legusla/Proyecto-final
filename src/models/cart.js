@@ -40,14 +40,16 @@ const addProductsToCart = async (id, idProduct) =>  {
 const deleteProductToCart = async (id, idProduct) =>  {
     const cart = await cartContenedor.getById(id);
     const { products } = cart;
-  
-    products.splice(idProduct, 1);
-  
+
+    products.cart = await cartContenedor.deleteById(idProduct);
+
     const newCart = {
       ...cart,
-      products
+      products  
     }
-    const cartUpdated = await cartContenedor.update(id, newCart);
+
+
+    const cartUpdated = await cartContenedor.update(id, newCart, idProduct);
     return cartUpdated;
   };
 
